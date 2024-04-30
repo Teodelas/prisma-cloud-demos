@@ -3,11 +3,7 @@ const app = express();
 const port = 80;
 app.use(express.json());
 
-// Catch-all route for any other path. RE: PC requires a '200 OK' for API Discovery to learn it's a valid path
-app.use((req, res) => {
-  res.status(200).send('OK');
-});
-
+//catch /hello-world
 app.get('/hello-world', (req, res) => {
   const responseData = {
     response: 'Hello, World!',
@@ -19,6 +15,12 @@ app.get('/hello-world', (req, res) => {
 
   res.json(responseData);
 });
+
+// Catch-all route for any other path. RE: PC requires a '200 OK' for API Discovery to learn it's a valid path
+app.use((req, res) => {
+  res.status(200).send('OK');
+});
+
 
 // Handle POST request to '/hello-world'
 app.post('/hello-world', (req, res) => {
