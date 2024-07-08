@@ -5,7 +5,7 @@ AWS Linux:
 sudo yum update -y
 sudo yum install git npm -y
 git clone https://github.com/Teodelas/prisma-cloud-demos.git
-npm install express pm2 -g
+sudo npm install express pm2
 sudo pm2 start ~/prisma-cloud-demos/demo-api/api.js
 ```
 
